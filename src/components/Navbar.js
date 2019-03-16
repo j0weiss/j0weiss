@@ -22,6 +22,12 @@ const NavItems = styled.div`
   justify-content: space-around;
 `;
 
+const SocialNavItems = styled(NavItems)`
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
 const NavItem = styled(Link)`
   margin: 10px;
   text-decoration: none;
@@ -43,7 +49,7 @@ const Navbar = () => {
         <NavItem to="">snippets</NavItem>
         <NavItem to="">blogs</NavItem>
       </NavItems>
-      <NavItems>
+      <SocialNavItems>
         <a href="https://github.com/j0weiss">
           <Icon src={githubIcon} alt="GitHub"/>
         </a>
@@ -56,7 +62,7 @@ const Navbar = () => {
         <a href="https://twitter.com/j0weiss">
           <Icon src={twitterIcon} alt="Twitter"/>
         </a>
-      </NavItems>
+      </SocialNavItems>
     </Container>
   )
 };
