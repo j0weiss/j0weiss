@@ -5,11 +5,9 @@ import Layout from "../components/Layout";
 export default () => {
   return (
     <Layout>
-      <section className="content">
-        <p>
-          This is me.
-        </p>
-      </section>
+      <p>
+        This is me.
+      </p>
     </Layout>
   )
 };

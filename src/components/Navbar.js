@@ -6,7 +6,6 @@ import githubIcon from "../images/github.svg";
 import gitlabIcon from "../images/gitlab.svg";
 import stackOverflowIcon from "../images/stackOverflow.svg";
 import twitterIcon from "../images/twitter.svg";
-import {BLACK} from "../global";
 
 
 const Container = styled.nav`
@@ -31,7 +30,7 @@ const SocialNavItems = styled(NavItems)`
 const NavItem = styled(Link)`
   margin: 10px;
   text-decoration: none;
-  color: ${BLACK};
+  color: inherit;
 `;
 
 const Icon = styled.img`
