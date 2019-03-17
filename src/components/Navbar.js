@@ -13,6 +13,12 @@ const Container = styled.nav`
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  background: linear-gradient(120deg, #112d4e, #3f72af);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  
+  @media (max-width: 500px) {
+    justify-content: center;
+  }
 `;
 
 const NavItems = styled.div`

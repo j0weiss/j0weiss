@@ -1,6 +1,8 @@
 import React from "react"
 import {graphql} from "gatsby";
+
 import Layout from "../components/Layout";
+import LinksCards from "../components/LinksCards";
 
 
 const Links = ({data}) => {
@@ -8,28 +10,7 @@ const Links = ({data}) => {
 
   return (
     <Layout>
-      {
-        edges.map(edge => {
-          return (
-            <div key={edge.node.name}>
-              <p className="tag">{edge.node.name}</p>
-              <ul>
-                {
-                  edge.node.links.map(link => {
-                    return (
-                      <li key={link.url}>
-                        <a href={link.url}>
-                          {link.label}
-                        </a>
-                      </li>
-                    )
-                  })
-                }
-              </ul>
-            </div>
-          )
-        })
-      }
+      <LinksCards categories={edges}/>
     </Layout>
   )
 };

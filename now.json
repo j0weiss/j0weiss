@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "j0weiss",
+  "alias": "dev.j0weiss.de",
   "builds": [
     {
       "src": "package.json",

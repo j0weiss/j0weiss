@@ -7,20 +7,19 @@ html {
 
 body {
     font-family: 'Nunito Sans', sans-serif;
-    color: #333333;
+    color: #f9f7f7;
     margin: 0;
 }
 
 body::after {
     content: '';
-    background-image: url("images/topography.svg");
-    opacity: 0.05;
+    background-image: url("images/topography.svg"), linear-gradient(120deg, #3f72af, #112d4e);
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     position: absolute;
     z-index: -1;
-    background-size: 500px, auto;
+    background-size: 200px, auto;
     background-attachment: fixed;
 }
