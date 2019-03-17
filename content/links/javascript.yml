@@ -2,3 +2,5 @@ name: JavaScript
 links:
   - label: JavaScript 30 - Vanilla JS Challenge
     url: https://github.com/wesbos/JavaScript30
+  - label: Launchpad for RxJS
+    url: https://reactive.how/rxjs/
