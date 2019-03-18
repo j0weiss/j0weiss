@@ -19,6 +19,7 @@ const CategoryLinks = styled.div`
 `;
 
 const CategoryName = styled.h1`
+  color: ${props => props.theme.textColor};
 `;
 
 export default ({categories}) => {

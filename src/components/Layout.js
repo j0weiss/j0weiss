@@ -9,7 +9,7 @@ import { theme } from "../theme";
 
 const StyledLayout = styled.div`
   background: ${props => props.theme.backgroundColor};
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.textColor};
   width: 100%;
   min-height: 100vh;
   display: flex;

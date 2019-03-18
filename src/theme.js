@@ -1,14 +1,14 @@
-/* Colors from https://colorhunt.co/palette/22272 */
+/* Colors from https://colorhunt.co/palette/117601 */
 export const theme = {
-  primaryColor: "#3f72af",
-  darkColor: "#112d4e",
-  lightColor: "#dbe2ef",
-  backgroundColor: "#f9f7f7"
+  primaryColor: "#4ECCA3",
+  textColor: "#EEEEEE",
+  darkColor: "#393E46",
+  backgroundColor: "#232931"
 };
 
 export const invertedTheme = {
-  primaryColor: "#f9f7f7",
-  darkColor: "#3f72af",
-  lightColor: "#dbe2ef",
-  backgroundColor: "#112d4e"
+  primaryColor: "#4ECCA3",
+  textColor: "#232931",
+  darkColor: "#393E46",
+  backgroundColor: "#EEEEEE"
 };

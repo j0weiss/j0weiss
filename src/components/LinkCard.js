@@ -4,10 +4,14 @@ import styled from "styled-components";
 
 const Card = styled.a`
   padding: 5px 20px;
-  border: 1px solid ${props => props.theme.primaryColor};
+  border: 1px solid ${props => props.theme.darkColor};
   border-radius: 5px;
   text-decoration: none;
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.textColor};
+  
+  &:hover {
+    border-color: ${props => props.theme.primaryColor};
+  }
 `;
 
 const Label = styled.p`

@@ -35,20 +35,20 @@ const SocialNavItems = styled(NavItems)`
 const NavItem = styled(Link)`
   margin: 10px;
   text-decoration: none;
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.textColor};
   
   &:hover {
-    color: ${props => props.theme.darkColor}
+    color: ${props => props.theme.primaryColor}
   }
 
   &.active {
-    color: ${props => props.theme.darkColor};
+    color: ${props => props.theme.primaryColor};
   }
 `;
 
 const NavLink = styled.a`
   margin: 10px;
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.textColor};
   
   &:hover {
     color: ${props => props.color};
@@ -66,7 +66,7 @@ class Navbar extends Component {
           <NavItem to="/blogs" activeClassName="active">blogs</NavItem>
         </NavItems>
         <SocialNavItems>
-          <NavLink href="https://github.com/j0weiss" color={"#333333"}>
+          <NavLink href="https://github.com/j0weiss" color={"#4078c0"}>
             <FontAwesomeIcon icon={faGithub}/>
           </NavLink>
           <NavLink href="https://gitlab.com/j0weiss" color={"#e24329"}>

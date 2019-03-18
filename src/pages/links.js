@@ -18,9 +18,9 @@ const FilterInput = styled.input`
   display: none;
   flex: 1;
   background-color: transparent;
-  border: 1px solid ${props => props.theme.primaryColor};
+  border: 1px solid ${props => props.theme.darkColor};
   border-radius: 5px;
-  padding: 2px 5px;
+  padding: 2px 10px;
   font: inherit;
   font-size: 1rem;
   color: ${props => props.theme.primaryColor};

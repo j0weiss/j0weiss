@@ -13,9 +13,13 @@ const StyledFooter = styled.footer`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: inherit;
+  color: ${props => props.theme.darkColor};
   display: flex;
   align-items: center;
+  
+  &:hover {
+    color: ${props => props.theme.primaryColor};
+  }
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
