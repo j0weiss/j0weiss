@@ -6,7 +6,7 @@ export default () => {
   return (
     <Layout>
       <h1>
-        This is me.
+        Blogs
       </h1>
     </Layout>
   )

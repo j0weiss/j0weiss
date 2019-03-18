@@ -1,20 +1,17 @@
-import React from "react";
+import React, {Component} from "react";
 import {Link} from "gatsby"
-import styled from "styled-components";
-
-import githubIcon from "../images/github.svg";
-import gitlabIcon from "../images/gitlab.svg";
-import stackOverflowIcon from "../images/stackOverflow.svg";
-import twitterIcon from "../images/twitter.svg";
+import styled, { withTheme } from "styled-components";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faGithub} from "@fortawesome/free-brands-svg-icons/faGithub";
+import {faGitlab} from "@fortawesome/free-brands-svg-icons/faGitlab";
+import {faTwitter} from "@fortawesome/free-brands-svg-icons/faTwitter";
+import {faStackOverflow} from "@fortawesome/free-brands-svg-icons/faStackOverflow";
 
 
 const Container = styled.nav`
-  width: 100%;
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  background: linear-gradient(120deg, #112d4e, #3f72af);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   
   @media (max-width: 500px) {
     justify-content: center;
@@ -36,40 +33,50 @@ const SocialNavItems = styled(NavItems)`
 const NavItem = styled(Link)`
   margin: 10px;
   text-decoration: none;
-  color: inherit;
+  color: ${props => props.theme.primaryColor};
+  
+  &:hover {
+    color: ${props => props.theme.darkColor}
+  }
 `;
 
-const Icon = styled.img`
+const NavLink = styled.a`
   margin: 10px;
-  height: 1.2em;
+  color: ${props => props.theme.primaryColor};
+  
+  &:hover {
+    color: ${props => props.color};
+  }
 `;
 
+class Navbar extends Component {
+  render() {
+    const activeLinkColor = this.props.theme.darkColor;
+    return (
+      <Container>
+        <NavItems>
+          <NavItem to="/" activeStyle={{color: activeLinkColor}}>home</NavItem>
+          <NavItem to="/links" activeStyle={{color: activeLinkColor}}>links</NavItem>
+          <NavItem to="/snippets" activeStyle={{color: activeLinkColor}}>snippets</NavItem>
+          <NavItem to="/blogs" activeStyle={{color: activeLinkColor}}>blogs</NavItem>
+        </NavItems>
+        <SocialNavItems>
+          <NavLink href="https://github.com/j0weiss" color={"#333333"}>
+            <FontAwesomeIcon icon={faGithub}/>
+          </NavLink>
+          <NavLink href="https://gitlab.com/j0weiss" color={"#fc6d26"}>
+            <FontAwesomeIcon icon={faGitlab}/>
+          </NavLink>
+          <NavLink href="https://stackoverflow.com/users/4238964/j0weiss" color={"#f48024"}>
+            <FontAwesomeIcon icon={faStackOverflow}/>
+          </NavLink>
+          <NavLink href="https://twitter.com/j0weiss" color={"#1da1f2"}>
+            <FontAwesomeIcon icon={faTwitter}/>
+          </NavLink>
+        </SocialNavItems>
+      </Container>
+    )
+  }
+}
 
-const Navbar = () => {
-  return (
-    <Container>
-      <NavItems>
-        <NavItem to="/">home</NavItem>
-        <NavItem to="/links">links</NavItem>
-        <NavItem to="">snippets</NavItem>
-        <NavItem to="">blogs</NavItem>
-      </NavItems>
-      <SocialNavItems>
-        <a href="https://github.com/j0weiss">
-          <Icon src={githubIcon} alt="GitHub"/>
-        </a>
-        <a href="https://gitlab.com/j0weiss">
-          <Icon src={gitlabIcon} alt="GitLab"/>
-        </a>
-        <a href="https://stackoverflow.com/users/4238964/j0weiss">
-          <Icon src={stackOverflowIcon} alt="Stack Overflow"/>
-        </a>
-        <a href="https://twitter.com/j0weiss">
-          <Icon src={twitterIcon} alt="Twitter"/>
-        </a>
-      </SocialNavItems>
-    </Container>
-  )
-};
-
-export default Navbar;
+export default withTheme(Navbar);

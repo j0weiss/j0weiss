@@ -1,14 +1,12 @@
 import React from "react";
 import {Link} from "gatsby";
 import styled from "styled-components";
-
-import smileIcon from "../images/smile.svg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSmile } from '@fortawesome/free-regular-svg-icons/faSmile'
 
 
 const StyledFooter = styled.footer`
-  width: 100%;
-  position: absolute;
-  bottom: 0;
+  margin: 10px;
   display: flex;
   justify-content: center;
 `;
@@ -20,9 +18,7 @@ const StyledLink = styled(Link)`
   align-items: center;
 `;
 
-const FooterImg = styled.img`
-  display: inline;
-  height: 1em;
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   margin: 0 5px;
 `;
 
@@ -32,7 +28,7 @@ const Footer = () => {
     <StyledFooter>
       <StyledLink to="/imprint">
         {new Date().getFullYear()} - Built with
-        <FooterImg src={smileIcon} alt="fun"/>
+        <StyledFontAwesomeIcon icon={faSmile}/>
         and ...
       </StyledLink>
     </StyledFooter>

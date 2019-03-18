@@ -42,7 +42,7 @@ export default ({categories}) => {
             <CategoryCard>{category.node.name}</CategoryCard>
             {
               category.node.links.map(link =>
-                <Card>{link.label}</Card>
+                <Card key={link.url}>{link.label}</Card>
               )
             }
           </Category>
