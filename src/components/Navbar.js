@@ -9,9 +9,11 @@ import {faStackOverflow} from "@fortawesome/free-brands-svg-icons/faStackOverflo
 
 
 const Container = styled.nav`
-  padding: 10px;
+  margin: 0 10px;
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid ${props => props.theme.primaryColor};
   
   @media (max-width: 500px) {
     justify-content: center;

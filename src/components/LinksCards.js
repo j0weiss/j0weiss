@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import LinkCard from "../components/LinkCard";
+
 
 const Categories = styled.div`
   display: flex;
@@ -9,28 +11,14 @@ const Categories = styled.div`
 
 const Category = styled.div`
   margin-bottom: 20px;
+`;
+const CategoryLinks = styled.div`
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
 `;
 
-const Card = styled.div`
-  height: 5rem;
-  padding: 20px;
-  background: #FFFFFF;
-  color: #112d4e;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-`;
-
-const CategoryCard = styled(Card)`
-  font-size: 3rem;
-  font-weight: 100;
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  background: #dbe2ef;
-  color: #3f72af;
+const CategoryName = styled.h1`
 `;
 
 export default ({categories}) => {
@@ -39,12 +27,14 @@ export default ({categories}) => {
       {
         categories.map(category =>
           <Category key={category.node.name}>
-            <CategoryCard>{category.node.name}</CategoryCard>
+            <CategoryName>{category.node.name}</CategoryName>
+            <CategoryLinks>
             {
               category.node.links.map(link =>
-                <Card key={link.url}>{link.label}</Card>
+                <LinkCard key={link.url} url={link.url} label={link.label}/>
               )
             }
+            </CategoryLinks>
           </Category>
         )
       }
