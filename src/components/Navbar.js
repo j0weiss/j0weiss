@@ -40,6 +40,10 @@ const NavItem = styled(Link)`
   &:hover {
     color: ${props => props.theme.darkColor}
   }
+
+  &.active {
+    color: ${props => props.theme.darkColor};
+  }
 `;
 
 const NavLink = styled.a`
@@ -53,14 +57,13 @@ const NavLink = styled.a`
 
 class Navbar extends Component {
   render() {
-    const activeLinkColor = this.props.theme.darkColor;
     return (
       <Container>
         <NavItems>
-          <NavItem to="/" activeStyle={{color: activeLinkColor}}>home</NavItem>
-          <NavItem to="/links" activeStyle={{color: activeLinkColor}}>links</NavItem>
-          <NavItem to="/snippets" activeStyle={{color: activeLinkColor}}>snippets</NavItem>
-          <NavItem to="/blogs" activeStyle={{color: activeLinkColor}}>blogs</NavItem>
+          <NavItem to="/" activeClassName="active">home</NavItem>
+          <NavItem to="/links" activeClassName="active">links</NavItem>
+          <NavItem to="/snippets" activeClassName="active">snippets</NavItem>
+          <NavItem to="/blogs" activeClassName="active">blogs</NavItem>
         </NavItems>
         <SocialNavItems>
           <NavLink href="https://github.com/j0weiss" color={"#333333"}>
