@@ -59,6 +59,7 @@ class Links extends Component {
     this.filterInputRef = React.createRef();
 
     this.handleFiltering = this.handleFiltering.bind(this);
+    this.handleAdHocFiltering = this.handleAdHocFiltering.bind(this);
     this.filterLinks = this.filterLinks.bind(this);
     this.toggleFilter = this.toggleFilter.bind(this);
   }
@@ -68,7 +69,9 @@ class Links extends Component {
     this.setState({
       allLinks: allLinks,
       filteredLinks: allLinks
-    })
+    });
+
+    window.addEventListener("keyup", this.handleAdHocFiltering);
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -77,11 +80,15 @@ class Links extends Component {
     }
   }
 
-  toggleFilter() {
+  componentWillUnmount() {
+    window.removeEventListener("keyup", this.handleAdHocFiltering);
+  }
+
+  toggleFilter(event, filterString = "", state = null) {
     this.setState({
-      filterIsActive: !this.state.filterIsActive,
+      filterIsActive: state === null ? !this.state.filterIsActive : state,
       filteredLinks: this.filterLinks(""),
-      filter: ""
+      filter: this.state.filterIsActive ? "" : filterString
     })
   }
 
@@ -92,6 +99,14 @@ class Links extends Component {
       filteredLinks: this.filterLinks(filter),
       filter: filter
     });
+  }
+
+  handleAdHocFiltering(event) {
+    if (event.key.toString() === "Escape") {
+      this.toggleFilter(event, "",false)
+    } else if (!this.state.filterIsActive) {
+      this.toggleFilter(event, event.key.toString());
+    }
   }
 
   filterLinks(filter) {
