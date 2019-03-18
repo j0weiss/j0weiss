@@ -4,7 +4,7 @@ import styled, {ThemeProvider} from "styled-components";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-import { theme, invertedTheme } from "../theme";
+import { theme } from "../theme";
 
 
 const StyledLayout = styled.div`
@@ -24,7 +24,6 @@ const Content = styled.section`
 const Layout = ({children}) => {
   return (
     <ThemeProvider theme={theme}>
-    {/*<ThemeProvider theme={invertedTheme}>*/}
       <StyledLayout>
         <Navbar/>
         <Content>
