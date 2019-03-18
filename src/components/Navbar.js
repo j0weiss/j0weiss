@@ -64,7 +64,7 @@ class Navbar extends Component {
           <NavLink href="https://github.com/j0weiss" color={"#333333"}>
             <FontAwesomeIcon icon={faGithub}/>
           </NavLink>
-          <NavLink href="https://gitlab.com/j0weiss" color={"#fc6d26"}>
+          <NavLink href="https://gitlab.com/j0weiss" color={"#e24329"}>
             <FontAwesomeIcon icon={faGitlab}/>
           </NavLink>
           <NavLink href="https://stackoverflow.com/users/4238964/j0weiss" color={"#f48024"}>
