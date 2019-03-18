@@ -4,21 +4,8 @@ import styled, {ThemeProvider} from "styled-components";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
+import { theme, invertedTheme } from "../theme";
 
-/* Colors from https://colorhunt.co/palette/22272 */
-const theme = {
-  primaryColor: "#3f72af",
-  darkColor: "#112d4e",
-  lightColor: "#dbe2ef",
-  backgroundColor: "#f9f7f7"
-};
-
-const invertedTheme = {
-  primaryColor: "#f9f7f7",
-  darkColor: "#3f72af",
-  lightColor: "#dbe2ef",
-  backgroundColor: "#112d4e"
-};
 
 const StyledLayout = styled.div`
   background: ${props => props.theme.backgroundColor};
