@@ -1,8 +1,48 @@
 import React, {Component} from "react"
 import {graphql} from "gatsby";
+import styled from "styled-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch'
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes'
 
 import Layout from "../components/Layout";
 import LinksCards from "../components/LinksCards";
+
+
+const Filter = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const FilterInput = styled.input`
+  display: none;
+  flex: 1;
+  background-color: transparent;
+  border: 1px solid ${props => props.theme.primaryColor};
+  border-radius: 5px;
+  padding: 2px 5px;
+  font: inherit;
+  font-size: 1rem;
+  color: ${props => props.theme.primaryColor};
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &.active {
+    display: block;
+  }
+`;
+
+const ToggleFilterInput = styled.span`
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${props => props.theme.primaryColor};
+  cursor: pointer;
+`;
 
 
 class Links extends Component {
@@ -12,11 +52,15 @@ class Links extends Component {
     this.state = {
       allLinks: [],
       filteredLinks: [],
-      filter: ''
+      filterIsActive: false,
+      filter: '',
     };
+
+    this.filterInputRef = React.createRef();
 
     this.handleFiltering = this.handleFiltering.bind(this);
     this.filterLinks = this.filterLinks.bind(this);
+    this.toggleFilter = this.toggleFilter.bind(this);
   }
 
   componentDidMount() {
@@ -28,7 +72,17 @@ class Links extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log(this.state);
+    if (this.state.filterIsActive) {
+      this.filterInputRef.current.focus();
+    }
+  }
+
+  toggleFilter() {
+    this.setState({
+      filterIsActive: !this.state.filterIsActive,
+      filteredLinks: this.filterLinks(""),
+      filter: ""
+    })
   }
 
   handleFiltering(event) {
@@ -46,16 +100,24 @@ class Links extends Component {
     }
 
     return this.state.allLinks.filter(item => {
-      return item.node['name'].toLowerCase().includes(filter);
+      return item.node['name'].toLowerCase().includes(filter.toLowerCase());
     });
   }
 
   render() {
     return (
       <Layout>
-        <form>
-          <input type="text" value={this.state.filter} onChange={this.handleFiltering}/>
-        </form>
+        <Filter>
+          <FilterInput type="text"
+                       className={this.state.filterIsActive ? "active" : ""}
+                       value={this.state.filter}
+                       onChange={this.handleFiltering}
+                       ref={this.filterInputRef}
+          />
+          <ToggleFilterInput onClick={this.toggleFilter}>
+            <FontAwesomeIcon icon={this.state.filterIsActive ? faTimes : faSearch}/>
+          </ToggleFilterInput>
+        </Filter>
         <LinksCards categories={this.state.filteredLinks}/>
       </Layout>
     )
