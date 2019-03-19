@@ -6,9 +6,9 @@ export const theme = {
   backgroundColor: "#232931"
 };
 
-export const invertedTheme = {
-  primaryColor: "#FAA916",
-  textColor: "#232931",
-  darkColor: "#393E46",
-  backgroundColor: "#EEEEEE"
-};
+// export const invertedTheme = {
+//   primaryColor: "#FAA916",
+//   textColor: "#232931",
+//   darkColor: "#393E46",
+//   backgroundColor: "#EEEEEE"
+// };

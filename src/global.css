@@ -1,8 +1,13 @@
 html {
     box-sizing: border-box;
 }
+
 *, *:before, *:after {
     box-sizing: inherit;
+}
+
+*:focus {
+    outline: #4ECCA3 auto 5px;
 }
 
 body {
