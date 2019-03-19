@@ -108,9 +108,13 @@ class Links extends Component {
   handleAdHocFiltering(event) {
     if (event.key.toString() === "Escape") {
       this.toggleFilter(event, "", false)
-    } else if (!this.state.filterIsActive) {
+    } else if (!this.state.filterIsActive && this.keyIsValid(event.keyCode)) {
       this.toggleFilter(event, event.key.toString());
     }
+  }
+
+  keyIsValid(keyCode) {
+    return 47 < keyCode && keyCode < 91;
   }
 
   filterLinks(filterString) {
