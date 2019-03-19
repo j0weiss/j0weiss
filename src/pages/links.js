@@ -65,6 +65,7 @@ class Links extends Component {
     this.filterLinkItems = this.filterLinkItems.bind(this);
     this.filterByCategory = this.filterByCategory.bind(this);
     this.toggleFilter = this.toggleFilter.bind(this);
+    this.handleClickOutsideOfFilter = this.handleClickOutsideOfFilter.bind(this);
   }
 
   componentDidMount() {
@@ -106,7 +107,7 @@ class Links extends Component {
 
   handleAdHocFiltering(event) {
     if (event.key.toString() === "Escape") {
-      this.toggleFilter(event, "",false)
+      this.toggleFilter(event, "", false)
     } else if (!this.state.filterIsActive) {
       this.toggleFilter(event, event.key.toString());
     }
@@ -176,6 +177,12 @@ class Links extends Component {
     });
   }
 
+  handleClickOutsideOfFilter(event) {
+    if (this.state.filterIsActive) {
+      this.toggleFilter(event, "", false);
+    }
+  }
+
   render() {
     return (
       <Layout>
@@ -190,7 +197,9 @@ class Links extends Component {
             <FontAwesomeIcon icon={this.state.filterIsActive ? faTimes : faSearch}/>
           </ToggleFilterInput>
         </Filter>
-        <LinksCards categories={this.state.filteredLinks}/>
+        <div onClick={this.handleClickOutsideOfFilter}>
+          <LinksCards categories={this.state.filteredLinks}/>
+        </div>
       </Layout>
     )
   }
