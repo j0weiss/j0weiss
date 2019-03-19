@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import styled, {ThemeProvider} from "styled-components";
 
 import Navbar from "./Navbar";
@@ -21,26 +21,20 @@ const Content = styled.section`
   margin: 20px;
 `;
 
-class Layout extends Component  {
-  componentWillUnmount() {
-    console.log('unmount');
-  }
-
-  render() {
-    return (
-      <ThemeProvider theme={theme}>
-        <StyledLayout>
-          <Navbar/>
-          <Content>
-            {
-              this.props.children
-            }
-          </Content>
-          <Footer/>
-        </StyledLayout>
-      </ThemeProvider>
-    )
-  }
-}
+const Layout = ({children}) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <StyledLayout>
+        <Navbar/>
+        <Content>
+          {
+            children
+          }
+        </Content>
+        <Footer/>
+      </StyledLayout>
+    </ThemeProvider>
+  )
+};
 
 export default Layout;
