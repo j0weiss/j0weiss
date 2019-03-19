@@ -1,9 +1,9 @@
 import React, {Component} from "react"
 import {graphql} from "gatsby";
 import styled from "styled-components";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch'
-import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch'
+import {faTimes} from '@fortawesome/free-solid-svg-icons/faTimes'
 
 import Layout from "../components/Layout";
 import LinksCards from "../components/LinksCards";
@@ -17,6 +17,7 @@ const Filter = styled.div`
 const FilterInput = styled.input`
   display: none;
   flex: 1;
+  -webkit-appearance: none;
   background-color: transparent;
   border: 1px solid ${props => props.theme.darkColor};
   border-radius: 5px;
