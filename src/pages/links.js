@@ -61,6 +61,8 @@ class Links extends Component {
     this.handleFiltering = this.handleFiltering.bind(this);
     this.handleAdHocFiltering = this.handleAdHocFiltering.bind(this);
     this.filterLinks = this.filterLinks.bind(this);
+    this.filterLinkItems = this.filterLinkItems.bind(this);
+    this.filterByCategory = this.filterByCategory.bind(this);
     this.toggleFilter = this.toggleFilter.bind(this);
   }
 
@@ -110,11 +112,44 @@ class Links extends Component {
   }
 
   filterLinks(filterString) {
-    if (filterString === "") {
+    if (filterString === '' || filterString === '#') {
       return this.state.allLinks;
     }
 
-    const filteredNodes = this.state.allLinks.map(item => {
+    const categoryString = this.getCategory(filterString);
+    const filterStringWithoutCategory = this.getFilterStringWithoutCategory(filterString);
+
+    return this.filterLinkItems(filterStringWithoutCategory, categoryString);
+  }
+
+  getCategory(filterString) {
+    const subStrings = filterString.split(' ');
+    const potentialCategories = subStrings.filter(string => /^#/.test(string));
+
+    if (potentialCategories.length === 0) {
+      return '';
+    }
+
+    return potentialCategories[0].split('#')[1];
+  }
+
+  getFilterStringWithoutCategory(filterString) {
+    const subStrings = filterString
+      .split(' ')
+      .filter(string => !/^#/.test(string))
+      .filter(string => string !== '');
+
+    if (subStrings.length === 1) {
+      return subStrings[0];
+    }
+
+    return subStrings.reduce((previous, current) => `${previous} ${current}`, '');
+  }
+
+  filterLinkItems(filterString, categoryString = '') {
+    const filteredByCategory = categoryString !== '' ? this.filterByCategory(categoryString) : this.state.allLinks;
+
+    const filteredNodes = filteredByCategory.map(item => {
       let filteredItem = {};
       filteredItem['node'] = {};
       filteredItem['node']['name'] = item.node.name;
@@ -131,6 +166,12 @@ class Links extends Component {
 
     return filteredNodes.filter(item => {
       return item.node['links'].length !== 0;
+    });
+  }
+
+  filterByCategory(categoryString) {
+    return this.state.allLinks.filter(item => {
+      return item.node['name'].toLowerCase().includes(categoryString.toLowerCase());
     });
   }
 
