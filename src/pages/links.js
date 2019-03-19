@@ -114,8 +114,23 @@ class Links extends Component {
       return this.state.allLinks;
     }
 
-    return this.state.allLinks.filter(item => {
-      return item.node['name'].toLowerCase().includes(filterString.toLowerCase());
+    const filteredNodes = this.state.allLinks.map(item => {
+      let filteredItem = {};
+      filteredItem['node'] = {};
+      filteredItem['node']['name'] = item.node.name;
+
+      filteredItem.node['links'] = item.node['links'].filter(link => {
+        const labelIncludesFilterString = link['label'].toLowerCase().includes(filterString.toLowerCase());
+        const urlIncludesFilterString = link['url'].toLowerCase().includes(filterString.toLowerCase());
+
+        return labelIncludesFilterString || urlIncludesFilterString;
+      });
+
+      return filteredItem;
+    });
+
+    return filteredNodes.filter(item => {
+      return item.node['links'].length !== 0;
     });
   }
 
