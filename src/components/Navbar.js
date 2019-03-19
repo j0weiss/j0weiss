@@ -63,7 +63,7 @@ class Navbar extends Component {
           <NavItem to="/" activeClassName="active">home</NavItem>
           <NavItem to="/links" activeClassName="active">links</NavItem>
           <NavItem to="/snippets" activeClassName="active">snippets</NavItem>
-          <NavItem to="/blogs" activeClassName="active">blogs</NavItem>
+          <NavItem to="/about" activeClassName="active">about</NavItem>
         </NavItems>
         <SocialNavItems>
           <NavLink href="https://github.com/j0weiss" color={"#4078c0"}>
