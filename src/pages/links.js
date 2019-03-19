@@ -53,7 +53,7 @@ class Links extends Component {
       allLinks: [],
       filteredLinks: [],
       filterIsActive: false,
-      filter: '',
+      filterString: '',
     };
 
     this.filterInputRef = React.createRef();
@@ -88,16 +88,16 @@ class Links extends Component {
     this.setState({
       filterIsActive: state === null ? !this.state.filterIsActive : state,
       filteredLinks: this.filterLinks(""),
-      filter: this.state.filterIsActive ? "" : filterString
+      filterString: this.state.filterIsActive ? "" : filterString
     })
   }
 
   handleFiltering(event) {
-    const filter = event.target.value.toString();
+    const filterString = event.target.value.toString();
 
     this.setState({
-      filteredLinks: this.filterLinks(filter),
-      filter: filter
+      filteredLinks: this.filterLinks(filterString),
+      filterString: filterString
     });
   }
 
@@ -109,13 +109,13 @@ class Links extends Component {
     }
   }
 
-  filterLinks(filter) {
-    if (filter === "") {
+  filterLinks(filterString) {
+    if (filterString === "") {
       return this.state.allLinks;
     }
 
     return this.state.allLinks.filter(item => {
-      return item.node['name'].toLowerCase().includes(filter.toLowerCase());
+      return item.node['name'].toLowerCase().includes(filterString.toLowerCase());
     });
   }
 
@@ -125,7 +125,7 @@ class Links extends Component {
         <Filter>
           <FilterInput type="text"
                        className={this.state.filterIsActive ? "active" : ""}
-                       value={this.state.filter}
+                       value={this.state.filterString}
                        onChange={this.handleFiltering}
                        ref={this.filterInputRef}
           />
