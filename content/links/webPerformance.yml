@@ -1,4 +1,4 @@
-name: Web Development
+name: Web Performance
 links:
   - label: User-centric Performance Metrics
     url: https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics#first_paint_and_fist_contentful_pain
