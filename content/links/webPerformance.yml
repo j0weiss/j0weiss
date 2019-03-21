@@ -1,0 +1,6 @@
+name: Web Development
+links:
+  - label: User-centric Performance Metrics
+    url: https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics#first_paint_and_fist_contentful_pain
+  - label: Measure Performance with the RAIL Model
+    url: https://developers.google.com/web/fundamentals/performance/rail
