@@ -2,7 +2,3 @@ name: Tools
 links:
   - label: Create and share beautiful images of your source code.
     url: https://carbon.now.sh
-  - label: A Complete Guide to Flexbox
-    url: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-  - label: A Complete Guide to Grid
-    url: https://css-tricks.com/snippets/css/complete-guide-grid/
