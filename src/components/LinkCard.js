@@ -22,6 +22,7 @@ const Label = styled.p`
 const URL = styled.p`
   margin: 0;
   font-style: italic;
+  word-break: break-word;
 `;
 
 
