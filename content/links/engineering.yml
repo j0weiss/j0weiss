@@ -2,3 +2,5 @@ name: Engineering
 links:
   - label: Design Patterns Game
     url: https://designpatternsgame.com/
+  - label: Rico's cheatsheets
+    url: https://devhints.io/
