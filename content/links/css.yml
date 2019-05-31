@@ -1,5 +1,7 @@
 name: CSS
 links:
+  - label: CSS Almanac
+    url: https://css-tricks.com/almanac/
   - label: A free visual guide to CSS
     url: https://cssreference.io/
   - label: A Complete Guide to Flexbox
@@ -10,3 +12,5 @@ links:
     url: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
   - label: Beautifully simple click-to-copy CSS effects
     url: https://cssfx.dev/
+  - label: Web Design Experiments by Jen Simmons
+    url: http://labs.jensimmons.com/

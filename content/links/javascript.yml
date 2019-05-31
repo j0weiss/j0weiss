@@ -4,3 +4,5 @@ links:
     url: https://github.com/wesbos/JavaScript30
   - label: Launchpad for RxJS
     url: https://reactive.how/rxjs/
+  - label: Perflink. Live Javascript Benchmarking.
+    url: https://perf.link
