@@ -6,3 +6,5 @@ links:
     url: https://webgems.io/
   - label: bundlephobia. Find the cost of adding a npm package to your bundle.
     url: https://bundlephobia.com/
+  - label: A tool to create frontend apps using webpack or Parcel.
+    url: https://createapp.dev/
