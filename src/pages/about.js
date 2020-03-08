@@ -1,9 +1,7 @@
 import React from "react"
-import {graphql} from "gatsby"
-import Img from "gatsby-image"
 import styled from "styled-components";
-
 import Layout from "../components/Layout";
+import portrait from "../components/portrait.jpg"
 
 
 const StyledLayout = styled.div`
@@ -23,12 +21,12 @@ const StyledLayout = styled.div`
 
 const Description = styled.div``;
 
-const Image = styled(Img)`
+const Image = styled.img`
   width: 250px;
   height: 250px;
   border: 2px solid ${props => props.theme.primaryColor};
   border-radius: 125px;
-  object-fit: contain;
+  object-fit: cover;
 `;
 
 const Emph = styled.span`
@@ -40,7 +38,7 @@ export default ({data}) => {
   return (
     <Layout>
       <StyledLayout>
-        <Image fixed={data.file.childImageSharp.fixed}/>
+        <Image src={portrait}/>
         <Description>
           <h1>
             this is me.
@@ -66,17 +64,3 @@ export default ({data}) => {
     </Layout>
   )
 };
-
-export const query = graphql`
-  query {
-    file(relativePath: { eq: "images/portrait.jpg" }) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        # Makes it trivial to update as your page's design changes.
-        fixed(width: 250, height: 250) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-  }
-`;
