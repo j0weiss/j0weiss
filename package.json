@@ -24,7 +24,7 @@
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.27",
-    "gatsby-transformer-remark": "^2.3.4",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-yaml": "^2.2.26",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
